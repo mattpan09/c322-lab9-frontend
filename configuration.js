@@ -1,14 +1,14 @@
-const mode = 0;
+const mode = 1;
 
 const host_local = "http://localhost:8080";
-const host_remote = "https://lab9-??.onrender.com";
+const host_remote = "https://lab9-mattpan09.onrender.com";
 
-function gethost() {
+function getHost() {
     return (mode == 0) ? host_local : host_remote;
 }
 
 function isLoggedIn() {
-    if (localStorage.getitem("token")) {
+    if (localStorage.getItem("token")) {
         return true;
     }
     else {
@@ -40,7 +40,7 @@ updateTheNavigationBar();
 
 async function updateTheNavigationBar() {
     const navigation = document.getElementsByClassName("topnav")[0];
-    let loginTag = navigation.children(navigation.children.length - 1);
+    let loginTag = navigation.children[navigation.children.length - 1];
     if (configuration.isLoggedIn()) {
         loginTag.innerHTML = 
         '<li class="right"><a href="#" onclick="logout()">Logout</a></li>';
